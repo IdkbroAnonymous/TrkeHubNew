@@ -1,0 +1,59 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+
+local Window = OrionLib:MakeWindow({
+    Name = "TrkeHub",
+    HidePremium = false,
+    SaveConfig = false,
+    ConfigFolder = "TrkeHubConfig",
+    IntroEnabled = true,
+    IntroText = "Welcome to TrkeHub",
+    Icon = "https://example.com/icon.png"
+})
+
+local Tab = Window:MakeTab({
+    Name = "Auras",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+
+local Section = Tab:AddSection({
+    Name = "Auras"
+})
+
+local MeleeKillAuraToggle = Tab:AddToggle({
+    Name = "Melee Kill Aura",
+    Default = false,
+    Callback = function(Value)
+        if Value then
+            print("Melee Kill Aura activado")
+            -- Ejecutar el script del Melee Kill Aura
+            local meleeKillAuraScript = loadstring(game:HttpGet('https://raw.githubusercontent.com/IdkbroAnonymous/TrkeHub/main/Melee%20Kill%20Aura'))
+            if meleeKillAuraScript then
+                meleeKillAuraScript()
+            end
+        else
+            print("Melee Kill Aura desactivado")
+
+        end
+    end
+})
+
+local FlareGunAuraToggle = Tab:AddToggle({
+    Name = "Flare Gun Aura",
+    Default = false,
+    Callback = function(Value)
+        if Value then
+            print("Flare Gun Aura activado")
+            -- Ejecutar el script del Flare Gun Aura
+            local flareGunAuraScript = loadstring(game:HttpGet('https://raw.githubusercontent.com/IdkbroAnonymous/TrkeHub/main/Flare%20Gun%20Aura'))
+            if flareGunAuraScript then
+                flareGunAuraScript()
+            end
+        else
+            print("Flare Gun Aura desactivado")
+        end
+    end
+})
+
+-- Inicializar la librería
+OrionLib:Init()
