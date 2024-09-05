@@ -33,7 +33,6 @@ local MeleeKillAuraToggle = Tab:AddToggle({
             end
         else
             print("Melee Kill Aura desactivado")
-
         end
     end
 })
@@ -53,6 +52,23 @@ local FlareGunAuraToggle = Tab:AddToggle({
             print("Flare Gun Aura desactivado")
         end
     end
+})
+
+-- Añadir un botón para la invitación de Discord con notificación
+local DiscordButton = Tab:AddButton({
+    Name = "Unirse al Discord",
+    Callback = function()
+        setclipboard("https://discord.gg/KEfqSHbXzC")
+        print("Invitación al Discord copiada al portapapeles")
+        
+        -- Mostrar la notificación
+        OrionLib:MakeNotification({
+            Name = "¡Copiado!",
+            Content = "Invitación al Discord copiada al portapapeles.",
+            Image = "rbxassetid://4483345998",
+            Time = 5 -- Duración de la notificación en segundos
+        })
+    end    
 })
 
 -- Inicializar la librería
